@@ -31,11 +31,3 @@ sysinfo.txt
 .DS_Store
 Thumbs.db
 
-# === Git LFS (archivos binarios grandes opcionales) ===
-*.psd
-*.tga
-*.fbx
-*.wav
-*.mp4
-*.mov
-*.zip
