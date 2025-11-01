@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.78, y: 2.02, z: -10}
+  m_LocalPosition: {x: -9.78, y: 2.29, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -572,7 +572,7 @@ Transform:
   m_GameObject: {fileID: 673833088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.78, y: 2.02, z: -10}
+  m_LocalPosition: {x: -9.78, y: 2.29, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2056635238615719313, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.02
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 2056635238615719313, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -787,6 +787,26 @@ PrefabInstance:
     - target: {fileID: 2056635238615719313, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506324488264719351, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
+      propertyPath: debugNextLevel.m_Name
+      value: Debug Next Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506324488264719351, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
+      propertyPath: debugNextLevel.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506324488264719351, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
+      propertyPath: debugNextLevel.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 98d1a289-202b-4452-b580-1d30654f05b2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506324488264719351, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
+      propertyPath: debugNextLevel.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506324488264719351, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
+      propertyPath: debugNextLevel.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Debug Next Level
       objectReference: {fileID: 0}
     - target: {fileID: 7007853661593803505, guid: 3670828ffeace71488a8b995ebc40e63, type: 3}
       propertyPath: m_Name

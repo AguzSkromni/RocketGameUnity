@@ -29,6 +29,12 @@ public class MovementScript : MonoBehaviour
 
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem middleMotorParticles;
+
+    [SerializeField] ParticleSystem leftMotorParticles;
+
+    [SerializeField] ParticleSystem rightMotorParticles;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,6 +55,18 @@ public class MovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        DisableAndEnableCollisionAndAudio();
+
+        ThurstMovement();
+        RotationMovement();
+
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+
+
+    }
+
+    void DisableAndEnableCollisionAndAudio()
+    {
         if (collisionHandler != null && collisionHandler.getGetCrashed())
         {
             // Asegurarse que los inputs estén deshabilitados y que no se apliquen fuerzas
@@ -59,25 +77,30 @@ public class MovementScript : MonoBehaviour
             if (audioSource != null && audioSource.isPlaying) audioSource.Stop();
             return;
         }
-
-        ThurstMovement();
-        RotationMovement();
-
-        rb.constraints = RigidbodyConstraints.FreezePositionZ;
-
-
     }
 
     void RotationMovement()
     {
         float rotationInput = rotation.ReadValue<float>();
-        if (rotationInput < 0)
+
+        switch (rotationInput)
         {
-            RotationWithForce(rotationForce);
-        }
-        else if (rotationInput > 0)
-        {
-            RotationWithForce(-rotationForce);
+            case 1:
+                RotationWithForce(-rotationForce);
+                leftMotorParticles.Play();
+                rightMotorParticles.Stop();
+                break;
+
+            case -1:
+                RotationWithForce(rotationForce);
+                rightMotorParticles.Play();
+                leftMotorParticles.Stop();
+                break;
+
+            default:
+                leftMotorParticles.Stop();
+                rightMotorParticles.Stop();
+                break;
         }
     }
 
@@ -93,6 +116,8 @@ public class MovementScript : MonoBehaviour
         if (thrust.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
+
+            middleMotorParticles.Play();
 
             if (!audioSource.isPlaying)
             {

@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 
@@ -16,13 +17,23 @@ public class CollisionHandlerScript : MonoBehaviour
 
     [SerializeField] ParticleSystem crashParticles;
 
+
     bool isCrashed = false;
 
+    void Update()
+    {
+        DebugNextLevelKey();
+    }
 
 
     void OnCollisionEnter(Collision collision)
     {
+        CrashedStatusSwitchCase(collision);
 
+    }
+
+    void CrashedStatusSwitchCase(Collision collision)
+    {
         if (isCrashed) return;
 
         switch (collision.gameObject.tag)
@@ -98,6 +109,15 @@ public class CollisionHandlerScript : MonoBehaviour
     public bool getGetCrashed()
     {
         return isCrashed;
+    }
+
+
+    void DebugNextLevelKey()
+    {
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            NextLevel();
+        }
     }
 
 }
